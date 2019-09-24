@@ -1,6 +1,6 @@
 # Welcome! Добре дошли!
 Hello, thanks for browsing this project! First of all, for those unfamiliar: CS50 is Harvard's Introduction to Computer Science.
-It is the single most popular course on campus, with over 800 students taking it each semester. Professor David J. Mallan, the
+It is the single most popular course on campus, with over 800 students taking it each semester. Professor David J. Malan, the
 person behind CS50, has "translated" the course through edX to CS50x - the online version of CS50, where people all around the
 world can watch the course lectures and shorts (exercises), as well as do the assignments. Ultimately, the course culminates with
 the final project whose criteria is to "build something of interest to you, that you solve an actual problem, that you impact your
@@ -36,7 +36,7 @@ benefit of English to Ancient Bulgarian translation, to reach international audi
 So, now that its goal is clear, let's talk about using it: Anbuldict is available at anbuldict.herokuapp.com ... go visit it! I do
 hope that its design should make it relatively intuitive. Nevertheless, here's most funcitionalities explained: <br />
 
-(1) Homepage: a static welcome page <br />
+(1) Homepage: a static welcome page; <br />
 
 (2) Search: regular search available through the navbar, allowing for a quick search of an English word (or part of one).
 Additionally, there is an extended search functionality, available in a separate section. This extended functionality also allows the
@@ -46,14 +46,14 @@ search term, or an exact match. Ultimately, after a search is performed, if matc
 
 (3) Word page: a dynamic page, fillable with the word data. It starts with the word in Ancient Bulgarian, a button to add it
 to favorites (working only for registered users), meanings in English and (modern) Bulgarian, and finishes with a link to its entry
-in the Sofia University dictionary <br />
+in the Sofia University dictionary; <br />
 
 (4) User system: to allow for more complicated functionalities, a user system is implemented. Firstly, a user can register and
 then subsequently log in. Then, they can suggest new words (to /hopefully/ be approved by the admin user). An on-screen keyboard is
 provided, to allow entering Ancient Bulgarian characters. Users can also add and remove favorites, as explained in the previous
 point. Additionally, they can delete a word they have proposed, by going to the word page described in point (3). If they
 are the authors of this word indeed, then a "Delete" button will show up. Lastly, they can review all their suggestions in the
-"My suggestions" section. Of course, user can also log out of the system. <br />
+"My suggestions" section. Of course, user can also log out of the system; <br />
 
 (4.1) Admin user: as explained, there is one user with more priviliges. They can directly add words (i.e., instead of suggestions)
 and delete any word. They can also approve or reject suggestions by other users. <br />
