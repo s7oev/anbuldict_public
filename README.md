@@ -35,6 +35,7 @@ benefit of English to Ancient Bulgarian translation, to reach international audi
 ### More about Anbuldict as a system
 So, now that its goal is clear, let's talk about using it: Anbuldict is available at anbuldict.herokuapp.com ... go visit it! I do
 hope that its design should make it relatively intuitive. Nevertheless, here's most funcitionalities explained: <br />
+
 (1) Homepage: a static welcome page <br />
 
 (2) Search: regular search available through the navbar, allowing for a quick search of an English word (or part of one).
