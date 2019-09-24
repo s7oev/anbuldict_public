@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Search results
+{% endblock %}
+
+{% block main %}
+    <h1>Search results for "{{ content["query"] }}"</h1>
+    <hr>
+    <p class="lead">
+        {% if found_results %}
+            {% if content["total"] == 1 %}
+                {{ content["total"] }} result found!
+            {% else %}
+                {{ content["total"] }} results found!
+            {% endif %}
+        {% else %}
+            No results :( Perhaps you would like to add this word?
+        {% endif %}
+    </p>
+    <p></p>
+
+{% if found_results %}
+    <div class="word-list">
+        {% if content["total"] == 1 %}
+            <a href="/word?id={{ content["results"][0]["id"] }}">{{ content["results"][0]["en"] }} ({{ content["results"][0]["bg"] }})</a>
+        {% else %}
+            <div class="container-fluid">
+                <div class="row justify-content-start">
+                    {% for result in content["results"] %}
+                        <div class="col-6">
+                            <a href="/word?id={{ result["id"] }}">{{ result["en"] }} ({{ result["bg"] }})</a>
+                            <p></p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+{% endif %}
+
+{% endblock %}

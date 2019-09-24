@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Extended search
+{% endblock %}
+
+{% block alert %}
+<div id="exsproblem"></div>
+{% endblock %}
+
+{% block main %}
+    <h1>Extended search</h1>
+    <hr>
+    <p class="lead">Find more! Hint: want to see all words? Select any language, "Contains", and leave the term field empty</p>
+    <p></p>
+    <form action="/exsearch" method="post" id="exsform">
+        <div class="form-group">
+            <select class="form-control" name="lang" id="lang">
+                <option value="" disabled selected>Language</option>
+                <option value="en">English</option>
+                <option value="bg">Bulgarian</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="method" value="contains" id="method_contains" checked>
+                    <label class="form-check-label" for="method_contains">Contains...</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="method" value="exactly" id="method_exactly">
+                <label class="form-check-label" for="method_exactly">Exactly...</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="term" placeholder="Search term" type="text">
+        </div>
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="True" name="all_words" id="all_words">
+                    <label class="form-check-label" for="all_words">
+                        Show also unreviewed and unapproved words
+                    </label>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" id="exsbutton">Search</button>
+    </form>
+
+    <script>
+        document.getElementById("exsbutton").addEventListener("click", function(event)
+        {
+            // Ensure some language has been selected
+            event.preventDefault();
+            var lang = document.getElementById("lang").value;
+
+            if (lang == "")
+            {
+                $("#exsproblem").html('<div class="alert alert-danger alert-dismissible fade show"><strong>Please select a language</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }
+
+            else
+            {
+                document.getElementById("exsform").submit();
+            }
+        });
+    </script>
+{% endblock %}

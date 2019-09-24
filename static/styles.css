@@ -1,0 +1,279 @@
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+.alert
+{
+    overflow-x: auto;
+    text-align: center;
+    opacity: 0.8;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main a, a:hover
+{
+    color: white;
+}
+
+#newwordform a
+{
+    text-decoration: underline;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.navbar
+{
+    z-index: 1000;
+}
+
+.footer
+{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+    line-height: 40px; /* Vertically center the text there */
+    z-index: 1000;
+}
+
+.footer a
+{
+    color: white;
+}
+
+@font-face {
+    font-family: "azbuka";
+    src: url("fonts/cb10u.woff") format('woff');
+}
+
+.bg-image
+{
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: block;
+    background-image: url('img/booksbg.jpg');
+    width: 100%;
+    height: 100%;
+    -webkit-filter: blur(8px);
+    -moz-filter: blur(8px);
+    -o-filter: blur(8px);
+    -ms-filter: blur(8px);
+    filter: blur(8px);
+}
+
+.bg-content
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 80px;
+}
+
+.container
+{
+    background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
+    margin-bottom: 100px;
+    color: white;
+}
+
+.navbar-brand
+{
+    font-family: azbuka;
+    margin-top: 6px;
+}
+
+hr
+{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 2px solid white;
+    margin: 0;
+    padding: 0;
+}
+
+.word-title
+{
+    font-family: azbuka;
+    font-size: 30px;
+}
+
+.word-content
+{
+    margin: auto;
+    width: 50% !important;
+    font-size: 25px;
+}
+
+.word-content a
+{
+    text-decoration: underline;
+}
+
+#anbul
+{
+    font-family: azbuka;
+}
+
+#keyboard
+{
+    font-family: azbuka;
+    font-size: 20px;
+    color: black;
+    margin: auto;
+    padding: 0;
+    list-style: none;
+}
+
+#keyboard li
+{
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #f9f9f9;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.capslock, .tab, .left-shift
+{
+    clear: left;
+}
+
+#keyboard .tab, #keyboard .delete
+{
+    width: 70px;
+}
+
+#keyboard .capslock
+{
+    width: 80px;
+}
+
+
+#keyboard .return
+{
+    width: 77px;
+}
+
+#keyboard .left-shift
+{
+    width: 95px;
+}
+
+#keyboard .right-shift
+{
+    width: 109px;
+}
+
+.lastitem
+{
+    margin-right: 0;
+}
+
+.uppercase
+{
+    text-transform: uppercase;
+}
+
+#keyboard .space
+{
+    clear: left;
+    width: 660px;
+}
+
+.on
+{
+    display: none;
+}
+
+#keyboard li:hover
+{
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border-color: #e5e5e5;
+    cursor: pointer;
+}
+
+
+.list-group-item
+{
+    background-color: transparent;
+    border: 0px;
+}
+
+.word-list
+{
+    font-size: 16px;
+}
+
+#confprompt
+{
+    font-size: 12px;
+}
+
+.sug
+{
+    font-size: 16px;
+}
+
+.sug .row
+{
+    margin-bottom: 10px;
+}
+
+.sug .stat-0
+{
+    color: yellow;
+    display: inline-block;
+}
+
+.sug .stat-y, .sug .stat-y a
+{
+    color: #90EE90;
+    display: inline-block;
+}
+
+.sug .stat-n, .sug .stat-n a
+{
+    color: red;
+    display: inline-block;
+}
+
+.txtbtn
+{
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block alert %}
+    <div id="loginproblem"></div>
+    {% if new_registration %}
+        <div class="alert alert-success alert-dismissible fade show">
+            <strong>You rock, you were just successfully registered! Login below with your credentials</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <h1 class="display-4">Login</h1>
+    <hr>
+    <p class="lead">After logging in, you can favorite words, as well as suggest new ones!</p>
+    <p></p>
+    <form action="/login" method="post" id="loginform">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text" id="username">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password" id="password">
+        </div>
+        <button class="btn btn-primary" type="submit" id="loginbutton">Log In</button>
+    </form>
+
+    <script>
+        document.getElementById("loginbutton").addEventListener("click", function(event)
+        {
+            // Ensure user filled form fields
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username == "")
+            {
+                $("#loginproblem").html('<div class="alert alert-danger alert-dismissible fade show"><strong>Please enter a username</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }
+            else if (password == "")
+            {
+                $("#loginproblem").html('<div class="alert alert-danger alert-dismissible fade show"><strong>Please enter a password</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+            }
+            else
+            {
+                document.getElementById("loginform").submit();
+            }
+        });
+    </script>
+{% endblock %}

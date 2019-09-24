@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ content["action"] }} a word
+{% endblock %}
+
+{% block main %}
+    <h1>{{ content["action"] }} a word</h1>
+    <hr>
+    <p></p>
+    <form action="/new_word" method="post" id="newwordform">
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="suhistdict" placeholder="Link to SU dictionary entry" type="text">
+            <small class="form-text">Include a valid link to <a href="http://histdict.uni-sofia.bg/oldbgdict/oldbg_search/">SU dictionary</a></small>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="en" placeholder="English" type="text">
+            <small class="form-text">Only Latin (English) alphabet characters</small>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="bg" placeholder="Български (Bulgarian)" type="text">
+            <small class="form-text">Only Bulgarian (Cyrillic) alphabet characters</small>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="anbul" id="anbul" placeholder="Старобългарски" type="text" value="" onfocus="keyboard()" onInput="keyboard()">
+            <small class="form-text">Only Ancient Bulgarian characters</small>
+        </div>
+        <div class="container-fluid">
+            <small class="form-text">To use the keyboard, the field above should be on focus (i.e., clicked). Or, you can copy-paste the word!</small>
+            <div class="row">
+                    <ul id="keyboard">
+                        <li class="letter">ꙃ</li>
+                        <li class="letter">ѫ</li>
+                        <li class="letter">ѭ</li>
+                        <li class="letter">ѧ</li>
+                        <li class="letter">ѩ</li>
+                        <li class="letter">ꙙ</li>
+                        <li class="letter">ы</li>
+                        <li class="letter">ꙋ</li>
+                        <li class="letter"></li>
+                        <li class="letter"></li>
+                        <li class="letter">ѳ</li>
+                        <li class="letter">ѡ</li>
+                        <li class="letter">ѣ</li>
+                        <li class="delete lastitem">Дelete</li>
+                        <li class="tab"></li>
+                        <li class="letter">ꙗ</li>
+                        <li class="letter">ю</li>
+                        <li class="letter">е</li>
+                        <li class="letter">р</li>
+                        <li class="letter">т</li>
+                        <li class="letter">ꙁ</li>
+                        <li class="letter">у</li>
+                        <li class="letter"></li>
+                        <li class="letter">о</li>
+                        <li class="letter">п</li>
+                        <li class="letter">ш</li>
+                        <li class="letter">щ</li>
+                        <li class="symbol lastitem"><span class="off"></span><span class="on"></span></li>
+                        <li class="capslock"></li>
+                        <li class="letter">а</li>
+                        <li class="letter">с</li>
+                        <li class="letter">д</li>
+                        <li class="letter">ф</li>
+                        <li class="letter">г</li>
+                        <li class="letter">х</li>
+                        <li class="letter">ї</li>
+                        <li class="letter">к</li>
+                        <li class="letter">л</li>
+                        <li class="letter"></li>
+                        <li class="letter">ж</li>
+                        <li class="return lastitem"></li>
+                        <li class="left-shift"></li>
+                        <li class="letter">ъ</li>
+                        <li class="letter">ь</li>
+                        <li class="letter">ц</li>
+                        <li class="letter">в</li>
+                        <li class="letter">б</li>
+                        <li class="letter">н</li>
+                        <li class="letter">м</li>
+                        <li class="letter">ꙑ</li>
+                        <li class="letter">ѹ</li>
+                        <li class="symbol"><span class="off"></span><span class="on"></span></li>
+                        <li class="right-shift lastitem"></li>
+                        <li class="space lastitem">&nbsp;</li>
+                    </ul>
+                </div>
+                <small class="form-text">Keyboard based on <a href="https://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774">a tutsplus.com tutorial</a></small>
+                <p>&nbsp;</p>
+            </div>
+        <button class="btn btn-primary" type="submit">{{ content["action"] }} word</button>
+    </form>
+    <p></p>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript">
+    function keyboard()
+    {
+        var write = document.getElementById("anbul").value
+		shift = false,
+		capslock = false;
+
+    	$('#keyboard li').click(function()
+    	{
+    		var $this = $(this),
+    			character = $this.html(); // If it's a lowercase letter, nothing happens to this variable
+
+    		// Special characters
+    		if ($this.hasClass('symbol')) character = "";
+    		if ($this.hasClass('space')) character = "";
+    		if ($this.hasClass('tab')) character = "";
+    		if ($this.hasClass('return')) character = "";
+
+        // Delete
+        if ($this.hasClass('delete'))
+        {
+          write = write.substring(0, write.length - 1)
+        }
+        // Add the character
+        else
+        {
+          write = write + character;
+        }
+        document.getElementById("anbul").value = write;
+    	});
+    }
+</script>
+{% endblock %}

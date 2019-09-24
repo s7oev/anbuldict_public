@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+    HOME
+{% endblock %}
+
+{% block alert %}
+    {% if content["has_alert"] %}
+        <div class="alert alert-{{ content["alert_type"] }} alert-dismissible fade show">
+            <strong>{{ content["alert"] }}</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <h1>Welcome! Добре дошли!</h1>
+    <hr>
+    <p class="lead">This is my final CS50 project, and more!</p>
+    <p>One day, if/when I become an entrepreneur,
+    I have decided to name my company using an Ancient Bulgarian word that would relate to
+    its activity (many different ideas as to what that activity will be). So, often when I
+    get an idea, I would summarize it in one word and try to find its translation in Ancient
+    Bulgarian. However, this is not too easy: there is a dictionary from Ancient Bulgarian to
+    (Modern) Bulgarian, thanks to Sofia University, but not the reverse (Bulgarian to Ancient
+    Bulgarian). So, here is the first one... with the added benefit of English to Ancient
+    Bulgarian translation!</p>
+{% endblock %}

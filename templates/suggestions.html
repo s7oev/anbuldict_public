@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ content["title"] }}
+{% endblock %}
+
+{% block main %}
+    <h1>{{ content["title"] }}</h1>
+    <hr>
+    <p class="lead">
+        {% if content["suggestions"]|length == 0 %}
+            No suggestions yet...
+        {% else %}
+            The admin is working hard on reviewing them!
+        {% endif %}
+    </p>
+
+    <div class="sug">
+        {% for suggestion in content["suggestions"] %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm">
+                        <a href="/word?id={{suggestion["id"] }}">{{ suggestion["en"] }} ({{ suggestion["bg"] }})</a>
+                    </div>
+                    <div class="col-sm">
+                        {% if session.user_id == 1 %}
+                            <div class="stat-y"><a href="/suggestions?admin=approve_{{ suggestion["id"] }}">approve</a></div> /
+                            <div class="stat-n"><a href="/suggestions?admin=reject_{{ suggestion["id"] }}">reject</a></div>
+                        {% else %}
+                            <div class="stat-{{ suggestion["approved"] }}">
+                                {% if suggestion["approved"] == "0" %}
+                                    unreviewed
+                                {% elif suggestion["approved"] == "n" %}
+                                    rejected
+                                {% else %}
+                                    approved
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
